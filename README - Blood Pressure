@@ -1,0 +1,64 @@
+# Blood Pressure Estimation from Video
+
+This project estimates blood pressure (systolic and diastolic) from video footage of a finger illuminated by a torchlight. It processes the video to analyze red intensity changes, extracts features using CNN-LSTM models, and predicts blood pressure using a trained model.
+
+## Features
+
+1. **Extract Red Intensity**: Analyze the red channel intensity across video frames.
+2. **Preprocess Signal**: Detrend and filter the signal using bandpass filtering.
+3. **Heart Rate Extraction**: Calculate beats per minute (BPM) using signal peaks.
+4. **CNN-LSTM Prediction**:
+   - **CNN**: Extract spatial features from video frames.
+   - **LSTM**: Capture temporal dependencies across frames.
+5. **BP Estimation**: Predict systolic and diastolic blood pressure using BPM as an additional feature.
+
+## Requirements
+
+- Python 3
+- OpenCV
+- NumPy
+- SciPy
+- PyTorch
+- Tkinter
+
+## Installation
+
+1. Clone the repository:
+    ```sh
+    git clone https://github.com/LordConnoisseur/Non-Invasive-Estimation-of-Health-Parameters.git
+    cd ./Non-Invasive-Estimation-of-Health-Parameters
+    ```
+
+2. Install the required Python packages:
+    ```sh
+    pip install -r requirements.txt
+    ```
+
+## Usage
+
+1. Run the program:
+    ```sh
+    python3 blood_pressure.py
+    ```
+
+2. Select a video file for analysis using the GUI window that appears.
+
+3. The script will:
+   - Extract BPM from the video.
+   - Use a trained model (`bp_model_lstm.pth`) to predict blood pressure values.
+   - Display the predicted systolic and diastolic blood pressure.
+
+## Example Output
+
+After selecting a video file, the program will display:
+```
+Predicted Systolic: 120.45, Diastolic: 80.67
+```
+
+## Limitations
+
+1. **Data Quality**: Ensure the video has stable and visible red intensity variations.
+2. **Model Generalization**: Trained models may require retraining for different lighting conditions or populations.
+
+## Project Members
+Sundaresh Karthic Ganesan & Tharunithi TJ
